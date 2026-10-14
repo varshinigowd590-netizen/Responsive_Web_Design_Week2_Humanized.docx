@@ -1,0 +1,283 @@
+/* =========================================================
+   UrbanLeaf - Responsive Stylesheet (Mobile-First)
+   Breakpoints: 600px (tablet) | 900px (laptop) | 1200px (desktop)
+   ========================================================= */
+
+/* ---------- 1. Design tokens (CSS variables) ---------- */
+:root {
+  --green-900: #1b4d32;
+  --green-700: #2e7d4f;
+  --green-100: #e6f4ea;
+  --accent:    #df8453;
+  --text:      #25302a;
+  --muted:     #5d6b63;
+  --bg:        #ffffff;
+  --bg-alt:    #f4f9f5;
+  --radius:    14px;
+  --shadow:    0 6px 20px rgba(0, 0, 0, 0.08);
+  --header-h:  64px;
+
+  /* Fluid typography: min, preferred (scales with viewport), max */
+  --fs-body: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --fs-h1:   clamp(2.2rem, 1.5rem + 3.5vw, 4rem);
+  --fs-h2:   clamp(1.6rem, 1.3rem + 1.5vw, 2.5rem);
+  --fs-h3:   clamp(1.1rem, 1rem + 0.5vw, 1.4rem);
+}
+
+/* ---------- 2. Reset & base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: var(--header-h); }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  font-size: var(--fs-body);
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+}
+
+/* Fluid media: never overflow the container */
+img, svg, video { max-width: 100%; height: auto; display: block; }
+
+h1, h2, h3, h4 { line-height: 1.2; margin: 0 0 0.5em; color: var(--green-900); }
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+p  { margin: 0 0 1em; }
+ul { list-style: none; margin: 0; padding: 0; }
+a  { color: var(--green-700); }
+
+/* ---------- 3. Utilities ---------- */
+.container {
+  width: min(100% - 2rem, 1200px);   /* 1rem gutter each side on small screens */
+  margin-inline: auto;
+}
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute; left: -999px; top: 0;
+  background: var(--green-900); color: #fff; padding: 0.5rem 1rem; z-index: 200;
+}
+.skip-link:focus { left: 0; }
+
+.section       { padding-block: clamp(2.5rem, 6vw, 5rem); }
+.section-alt   { background: var(--bg-alt); }
+.section-head  { text-align: center; max-width: 40rem; margin: 0 auto 2rem; }
+.section-head p { color: var(--muted); }
+
+/* ---------- 4. Buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--green-700);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border: 2px solid var(--green-700);
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.25s, color 0.25s, transform 0.25s;
+}
+.btn:hover, .btn:focus-visible { background: var(--green-900); border-color: var(--green-900); }
+.btn-outline { background: transparent; color: var(--green-700); margin-left: 0.5rem; }
+.btn-outline:hover, .btn-outline:focus-visible { color: #fff; }
+.btn-small { padding: 0.4rem 1.1rem; font-size: 0.9rem; }
+
+/* ---------- 5. Header & navigation (mobile first) ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  min-height: var(--header-h);
+}
+
+.logo {
+  font-size: 1.5rem; font-weight: 700; color: var(--green-900);
+  text-decoration: none; margin: 0;
+}
+.logo span { color: var(--accent); }
+
+/* Hamburger button (visible on mobile only) */
+.nav-toggle {
+  display: flex; flex-direction: column; gap: 5px;
+  background: none; border: 0; padding: 0.6rem; cursor: pointer;
+}
+.nav-toggle .bar {
+  width: 26px; height: 3px; background: var(--green-900); border-radius: 2px;
+}
+
+/* Mobile dropdown menu */
+.site-nav {
+  position: absolute; top: var(--header-h); left: 0; right: 0;
+  background: #fff;
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.site-nav.open { max-height: 320px; box-shadow: var(--shadow); }
+.site-nav a {
+  display: block; padding: 0.9rem 1.25rem;
+  text-decoration: none; color: var(--text); font-weight: 500;
+  border-top: 1px solid #edf2ee;
+}
+.site-nav a:hover, .site-nav a:focus-visible { background: var(--green-100); }
+
+/* ---------- 6. Hero (mobile: stacked) ---------- */
+.hero { background: linear-gradient(180deg, var(--green-100), #fff); padding-block: 2.5rem; }
+
+.hero-inner { display: grid; gap: 2rem; align-items: center; text-align: center; }
+.hero-text h1 em { color: var(--accent); font-style: normal; }
+.lead { color: var(--muted); font-size: 1.1em; }
+.hero-text .btn { margin-block: 0.25rem; }
+.hero-image { margin: 0; width: min(80%, 380px); justify-self: center; }
+
+/* ---------- 7. Grids (flexible, no fixed widths) ---------- */
+.grid { display: grid; gap: 1.25rem; }
+
+/* Mobile: 1 column */
+.features-grid, .product-grid { grid-template-columns: 1fr; }
+
+.card {
+  background: #fff; padding: 1.5rem; border-radius: var(--radius);
+  box-shadow: var(--shadow); text-align: center;
+  transition: transform 0.25s;
+}
+.card .icon { font-size: 2.2rem; margin-bottom: 0.5rem; }
+.card p { color: var(--muted); margin: 0; }
+
+/* Product cards - image is generated with CSS gradients; aspect-ratio keeps it fluid */
+.product {
+  background: #fff; border-radius: var(--radius);
+  box-shadow: var(--shadow); overflow: hidden;
+  transition: transform 0.25s;
+}
+.product-img { aspect-ratio: 4 / 3; width: 100%; }
+.p1 { background: linear-gradient(135deg, #2e7d4f, #a8d5b5); }
+.p2 { background: linear-gradient(135deg, #3f9d66, #d8f0dc); }
+.p3 { background: linear-gradient(135deg, #1b4d32, #7fc29a); }
+.p4 { background: linear-gradient(135deg, #5aa879, #e6f4ea); }
+
+.product-body { padding: 1rem 1.25rem 1.25rem; }
+.product-body h3 { margin-bottom: 0.25rem; }
+.price { color: var(--accent); font-weight: 700; font-size: 1.15rem; margin-bottom: 0.75rem; }
+
+/* ---------- 8. About ---------- */
+.about-layout { display: grid; gap: 2rem; }
+.stats { display: grid; gap: 1rem; }
+.stat {
+  background: var(--green-100); border-radius: var(--radius);
+  padding: 1.25rem; text-align: center;
+}
+.stat strong { display: block; font-size: 2rem; color: var(--green-900); }
+.stat span { color: var(--muted); }
+
+/* ---------- 9. Contact form ---------- */
+.contact-form {
+  max-width: 700px; margin-inline: auto;
+  background: #fff; padding: 1.5rem; border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.form-row { display: grid; gap: 1rem; }
+.field { margin-bottom: 1rem; }
+.field label { display: block; font-weight: 600; margin-bottom: 0.3rem; }
+.field input, .field textarea {
+  width: 100%; padding: 0.75rem; font: inherit;
+  border: 1px solid #c9d6ce; border-radius: 8px;
+}
+.field input:focus, .field textarea:focus {
+  outline: 3px solid rgba(46, 125, 79, 0.35); border-color: var(--green-700);
+}
+
+/* ---------- 10. Footer ---------- */
+.site-footer { background: var(--green-900); color: #dcebe1; padding-top: 2.5rem; }
+.site-footer a { color: #dcebe1; text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+.site-footer h4 { color: #fff; }
+.site-footer .logo { color: #fff; }
+.footer-grid { display: grid; gap: 1.5rem; text-align: center; }
+.footer-grid address { font-style: normal; }
+.footer-grid li { margin-bottom: 0.4rem; }
+.copyright {
+  text-align: center; margin: 2rem 0 0; padding: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15); font-size: 0.9rem;
+}
+
+/* =========================================================
+   MEDIA QUERIES (min-width = mobile-first)
+   ========================================================= */
+
+/* ---------- Tablet: 600px and up ---------- */
+@media (min-width: 600px) {
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+  .product-grid  { grid-template-columns: repeat(2, 1fr); }
+  .form-row      { grid-template-columns: 1fr 1fr; }
+  .stats         { grid-template-columns: repeat(3, 1fr); }
+  .footer-grid   { grid-template-columns: repeat(3, 1fr); text-align: left; }
+  .contact-form  { padding: 2.25rem; }
+}
+
+/* ---------- Laptop: 900px and up ---------- */
+@media (min-width: 900px) {
+  /* Navigation becomes a horizontal bar */
+  .nav-toggle { display: none; }
+  .site-nav {
+    position: static; max-height: none; overflow: visible;
+    background: transparent; box-shadow: none;
+  }
+  .site-nav ul { display: flex; gap: 0.25rem; }
+  .site-nav a { border: 0; border-radius: 999px; padding: 0.5rem 1rem; }
+
+  /* Hero: two columns, text left / image right */
+  .hero { padding-block: 4rem; }
+  .hero-inner { grid-template-columns: 1.1fr 0.9fr; text-align: left; gap: 3rem; }
+  .hero-image { width: 100%; }
+
+  /* Grids expand to 4 columns */
+  .features-grid { grid-template-columns: repeat(4, 1fr); }
+  .product-grid  { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+
+  /* About: text beside stats (sidebar layout) */
+  .about-layout { grid-template-columns: 1.5fr 1fr; align-items: center; gap: 3rem; }
+  .stats { grid-template-columns: 1fr; }
+
+  .card:hover, .product:hover { transform: translateY(-6px); }
+}
+
+/* ---------- Large desktop: 1200px and up ---------- */
+@media (min-width: 1200px) {
+  .grid { gap: 2rem; }
+  .hero { padding-block: 5.5rem; }
+  .card { padding: 2rem; }
+}
+
+/* ---------- Short landscape phones ---------- */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero { padding-block: 1.5rem; }
+  .site-header { position: static; }   /* free up vertical space */
+}
+
+/* ---------- Touch devices: no hover lift ---------- */
+@media (hover: none) {
+  .card:hover, .product:hover { transform: none; }
+}
+
+/* ---------- User preferences ---------- */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* ---------- Print ---------- */
+@media print {
+  .site-header, .nav-toggle, .contact-form, .btn { display: none; }
+  body { color: #000; }
+}

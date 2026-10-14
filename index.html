@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="UrbanLeaf - a responsive landing page for a houseplant shop.">
+  <title>UrbanLeaf | Plants for Every Space</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===== Header & Navigation ===== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#home" class="logo">Urban<span>Leaf</span></a>
+
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#features">Why Us</a></li>
+          <li><a href="#plants">Plants</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ===== Hero ===== -->
+    <section id="home" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h1>Bring nature <em>home</em></h1>
+          <p class="lead">Hand-picked indoor plants, delivered fresh and ready to thrive in any room, balcony or office desk.</p>
+          <a href="#plants" class="btn">Shop Plants</a>
+          <a href="#about" class="btn btn-outline">Learn More</a>
+        </div>
+
+        <figure class="hero-image">
+          <!-- Inline SVG scales fluidly with its container -->
+          <svg viewBox="0 0 400 400" role="img" aria-label="Illustration of a potted plant">
+            <circle cx="200" cy="200" r="190" fill="#d8f0dc"/>
+            <path d="M200 250 C150 190 110 170 90 110 C150 120 190 160 200 250Z" fill="#2e7d4f"/>
+            <path d="M200 250 C250 190 290 170 310 110 C250 120 210 160 200 250Z" fill="#3f9d66"/>
+            <path d="M200 250 C185 170 190 110 200 50 C215 110 215 170 200 250Z" fill="#256b42"/>
+            <path d="M130 270 H270 L250 350 H150Z" fill="#c8693a"/>
+            <rect x="120" y="255" width="160" height="26" rx="6" fill="#df8453"/>
+          </svg>
+          <figcaption class="visually-hidden">A green plant in a terracotta pot</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===== Features ===== -->
+    <section id="features" class="section">
+      <div class="container">
+        <header class="section-head">
+          <h2>Why choose UrbanLeaf?</h2>
+          <p>Everything you need to grow a greener home.</p>
+        </header>
+
+        <div class="grid features-grid">
+          <article class="card">
+            <div class="icon" aria-hidden="true">&#127793;</div>
+            <h3>Healthy Plants</h3>
+            <p>Every plant is nurtured for weeks before it reaches you.</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">&#128666;</div>
+            <h3>Safe Delivery</h3>
+            <p>Eco-friendly, shock-proof packaging keeps leaves unbroken.</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">&#128161;</div>
+            <h3>Care Guidance</h3>
+            <p>Simple care cards and expert tips with each order.</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">&#128154;</div>
+            <h3>Eco Friendly</h3>
+            <p>Recycled pots and peat-free soil for a lighter footprint.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Plants / Products ===== -->
+    <section id="plants" class="section section-alt">
+      <div class="container">
+        <header class="section-head">
+          <h2>Popular Plants</h2>
+          <p>Low-maintenance favourites loved by our customers.</p>
+        </header>
+
+        <div class="grid product-grid">
+          <article class="product">
+            <div class="product-img p1" role="img" aria-label="Snake plant"></div>
+            <div class="product-body">
+              <h3>Snake Plant</h3>
+              <p class="price">&#8377;499</p>
+              <a href="#contact" class="btn btn-small">Order</a>
+            </div>
+          </article>
+          <article class="product">
+            <div class="product-img p2" role="img" aria-label="Money plant"></div>
+            <div class="product-body">
+              <h3>Money Plant</h3>
+              <p class="price">&#8377;299</p>
+              <a href="#contact" class="btn btn-small">Order</a>
+            </div>
+          </article>
+          <article class="product">
+            <div class="product-img p3" role="img" aria-label="Peace lily"></div>
+            <div class="product-body">
+              <h3>Peace Lily</h3>
+              <p class="price">&#8377;649</p>
+              <a href="#contact" class="btn btn-small">Order</a>
+            </div>
+          </article>
+          <article class="product">
+            <div class="product-img p4" role="img" aria-label="Aloe vera"></div>
+            <div class="product-body">
+              <h3>Aloe Vera</h3>
+              <p class="price">&#8377;349</p>
+              <a href="#contact" class="btn btn-small">Order</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section id="about" class="section">
+      <div class="container about-layout">
+        <article class="about-text">
+          <h2>Our Story</h2>
+          <p>UrbanLeaf started with a small balcony and a big love for greenery. Today we help thousands of people turn bare corners into calm, living spaces.</p>
+          <p>We believe anyone can be a plant parent. That is why we choose hardy varieties, explain care in plain language, and stay available when you have questions.</p>
+        </article>
+
+        <aside class="stats" aria-label="Company statistics">
+          <div class="stat"><strong>5,000+</strong><span>Happy customers</span></div>
+          <div class="stat"><strong>60+</strong><span>Plant varieties</span></div>
+          <div class="stat"><strong>98%</strong><span>Plants arrive healthy</span></div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section id="contact" class="section section-alt">
+      <div class="container contact-wrap">
+        <header class="section-head">
+          <h2>Get in touch</h2>
+          <p>Questions or custom orders? Send us a message.</p>
+        </header>
+
+        <form class="contact-form" action="#" method="post">
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="logo">Urban<span>Leaf</span></p>
+        <p>Plants for every space.</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#features">Why Us</a></li>
+          <li><a href="#plants">Plants</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+      <address>
+        <h4>Contact</h4>
+        <p>hello@urbanleaf.example</p>
+        <p>+91 98765 43210</p>
+      </address>
+    </div>
+    <p class="copyright">&copy; 2026 UrbanLeaf. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Toggle the mobile navigation menu
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.site-nav');
+
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+
+    // Close the menu after a link is tapped
+    nav.querySelectorAll('a').forEach(link =>
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      })
+    );
+  </script>
+</body>
+</html>
